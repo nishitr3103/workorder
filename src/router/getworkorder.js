@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const workOrderData = require('../databse/db')
+const workOrderData = require('../database/db')
 
 router.post('/getworkorder',(req,res)=>{
     console.log('Get Work Order Router !')
