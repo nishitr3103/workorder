@@ -2,6 +2,17 @@ import React from "react";
 import '../styles/workorderfilter.css';
 
 export default function WorkorderFilters({ filters, setFilters, onSearch }) {
+  
+  const handleAreaChange = (e) => {
+    setFilters({ ...filters, area: e.target.value });
+  };
+  const handleContractorChange = (e) => {
+    setFilters({ ...filters, contractor: e.target.value });
+  };
+  const handleContractChange = (e) => {
+    setFilters({ ...filters, contract: e.target.value });
+  };
+
   return (
     <div className="workorder-filters">
       <div>
@@ -26,25 +37,28 @@ export default function WorkorderFilters({ filters, setFilters, onSearch }) {
 
       <div>
         <label>Contractor</label>
-        <select defaultValue="">
+        <select value={filters.Contractor} onChange={handleContractorChange}>
           <option value="">-- Please select --</option>
-          <option value="contractor1">Contractor 1</option>
+          <option value="TV GoSmarter">TV GoSmarter</option>
+          <option value="Mobile GoSmarter">Mobile GoSmarter</option>
         </select>
       </div>
 
       <div>
         <label>Contract</label>
-        <select defaultValue="">
+        <select value={filters.Contract} onChange={handleContractChange}>
           <option value="">-- Please select --</option>
-          <option value="contract1">Contract 1</option>
+          <option value="46 00120.A2.R.CA TV GoSmarter">46 00120.A2.R.CA TV GoSmarter</option>
+          <option value="100 00120.A2.R.CA TV GoSmarter">100 00120.A2.R.CA TV GoSmarter</option>
         </select>
       </div>
 
       <div>
         <label>Area</label>
-        <select defaultValue="">
+        <select value={filters.area} onChange={handleAreaChange}>
           <option value="">-- Please select --</option>
-          <option value="Area1">Area 1</option>
+          <option value="A2W">A2W</option>
+          <option value="C3WAR">C3WAR</option>
         </select>
       </div>
 

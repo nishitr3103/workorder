@@ -6,7 +6,6 @@ const homeRouter = require('./src/router/home')
 const getWorkOrder = require('./src/router/getworkorder')
 const port = process.env.PORT || 3000;
 
-
 const corsOptions = {
     origin: 'http://localhost:3001',
     methods: ['GET', 'POST', 'OPTIONS'],

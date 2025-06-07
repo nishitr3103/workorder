@@ -20,7 +20,7 @@ export default function WorkorderSearch() {
         },
         body: JSON.stringify(filters)
       });
-
+      
       const parsedData = await response.json();
       setResults(parsedData);
       setSearched(true);
