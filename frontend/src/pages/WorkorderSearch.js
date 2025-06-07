@@ -32,7 +32,6 @@ export default function WorkorderSearch() {
   };
 
   const handleGetCompleteData = () => {
-    console.log('////////////', results);
     setShowDetails(true); // Set flag to show details
   };
 

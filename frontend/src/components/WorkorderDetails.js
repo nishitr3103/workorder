@@ -1,43 +1,33 @@
 import React from "react";
+import "../styles/workorderdetails.css";
 
 export default function WorkorderDetails({ results }) {
+  if (!results.length) return null;
+
   return (
-    <div className="overflow-auto p-4">
-      <label>Results</label>
-      <table className="w-full text-sm border-collapse">
-        <thead>
-          <tr className="border-b">
-            <th className="text-left p-2">Name</th>
-            <th className="text-left p-2">city</th>
-            <th className="text-left p-2">catoNumber</th>
-            <th className="text-left p-2">Closure</th>
-            <th className="text-left p-2">SNN</th>
-            <th className="text-left p-2">Workorder</th>
-            <th className="text-left p-2">Address</th>
-            <th className="text-left p-2">Contract</th>
-            <th className="text-left p-2">PER</th>
-            <th className="text-left p-2">JobCode</th>
-            <th className="text-left p-2">Feedback</th>
-          </tr>
-        </thead>
-        <tbody>
-          {results.map((r, i) => (
-            <tr key={i} className="border-t">
-              <td className="p-2">{r.name}</td>
-              <td className="p-2">{r.city}</td>
-              <td className="p-2">{r.catoNumber}</td>
-              <td className="p-2">{r.closure}</td>
-              <td className="p-2">{r.snn}</td>
-              <td className="p-2">{r.workorder}</td>
-              <td className="p-2">{r.address}</td>
-              <td className="p-2">{r.contract}</td>
-              <td className="p-2">{r.per}</td>
-              <td className="p-2">{r.jobCode}</td>
-              <td className="p-2">{r.feedback}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="workorder-details-container">
+      {results.map((r, i) => (
+        <div key={i} className="workorder-card">
+          <div className="workorder-header">
+            <h3>{r.workorder}</h3>
+          </div>
+          <div className="workorder-section">
+            <div><strong>Process:</strong> {r.process}</div>
+            <div><strong>SN / Circuit ID:</strong> {r.snn}</div>
+            <div><strong>Customer:</strong> {r.name} ({r.id})</div>
+            <div><strong>Address:</strong> {r.address}</div>
+            <div><strong>Lex / Work Area:</strong> {r.lex} / {r.area}</div>
+            <div><strong>Zone:</strong> {r.zone}</div>
+            <div><strong>Jobcode:</strong> {r.jobCode}</div>
+            <div><strong>Closure Code(s):</strong> {r.feedback}</div>
+            <div><strong>Contractor:</strong> {r.contractor}</div>
+            <div><strong>Contract:</strong> {r.contract}</div>
+            <div><strong>Closure Date:</strong> {r.closure}</div>
+            <div><strong>PER:</strong> {r.per}</div>
+            <div><strong>Cato Number:</strong> {r.catoNumber}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

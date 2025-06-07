@@ -3,6 +3,12 @@ const data = [
     {
       name:'Alex',
       city:'paris',
+      process: 'Copper Repair',
+      id:'3903143',
+      lex:'03wbi',
+      area:'A2W',
+      zone:'N/A',
+      contractor:'tv go smartee',
       catoNumber:'12345',
       closure: "18/10/2024",
       snn: "038869402",
