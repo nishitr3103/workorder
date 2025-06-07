@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import WorkorderFilters from "../components/WorkorderFilters";
 import WorkorderTable from "../components/WorkorderTable";
+import WorkorderDetails from "../components/WorkorderDetails";
 import '../styles/workorderfilter.css';
 
 export default function WorkorderSearch() {
   const [filters, setFilters] = useState({});
   const [results, setResults] = useState([]);
-  const [searched, setSearched] = useState(false); // to track if search attempted
+  const [searched, setSearched] = useState(false);
+  const [showDetails, setShowDetails] = useState(false); // to display complete data
 
   const fetchResults = async () => {
     const url = 'http://localhost:3000/getworkorder';
@@ -22,6 +24,7 @@ export default function WorkorderSearch() {
       const parsedData = await response.json();
       setResults(parsedData);
       setSearched(true);
+      setShowDetails(false); // reset details on new search
     } catch (error) {
       console.error('Error fetching data:', error);
       setSearched(true);
@@ -29,18 +32,8 @@ export default function WorkorderSearch() {
   };
 
   const handleGetCompleteData = () => {
-    // // Open in new tab or redirect
-    // window.open('/complete-data', '_blank'); // OR navigate to a new route/modal
-    console.log('////////////',results)
-    return(
-      <div className="container">
-        <div className="custom-container">
-          {
-            results
-          }
-        </div>
-       </div> 
-    )
+    console.log('////////////', results);
+    setShowDetails(true); // Set flag to show details
   };
 
   return (
@@ -56,7 +49,7 @@ export default function WorkorderSearch() {
         </div>
 
         {/* Show results table */}
-        {results.length > 0 && (
+        {results.length > 0 && !showDetails && (
           <div className="custom-container">
             <WorkorderTable results={results} />
             <div style={{ textAlign: "right", marginTop: "10px" }}>
@@ -64,6 +57,13 @@ export default function WorkorderSearch() {
                 Get Complete Data
               </button>
             </div>
+          </div>
+        )}
+
+        {/* Show full details if requested */}
+        {showDetails && (
+          <div className="custom-container">
+            <WorkorderDetails results={results} />
           </div>
         )}
 

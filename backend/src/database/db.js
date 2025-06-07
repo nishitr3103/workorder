@@ -1,6 +1,9 @@
 
 const data = [
     {
+      name:'Alex',
+      city:'paris',
+      catoNumber:'12345',
       closure: "18/10/2024",
       snn: "038869402",
       workorder: "WO1260462_980758029_840938_SER_CS11167037_WO1260462-1 (R-JTR)",
