@@ -5,4 +5,4 @@ router.get('/home',(req,res)=>{
     res.status(200).send('home page')
 })
 
-module.exports= router;
+module.exports = router;

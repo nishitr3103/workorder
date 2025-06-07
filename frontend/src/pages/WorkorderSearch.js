@@ -8,6 +8,7 @@ export default function WorkorderSearch() {
 
   const fetchResults = async () => {
     const url = 'http://localhost:3000/getworkorder';
+    //console.log(filters)
 
     try {
       const response = await fetch(url, {
@@ -28,6 +29,7 @@ export default function WorkorderSearch() {
 
   return (
     <div>
+      <h1 className="custom-label">Work Order Search</h1>
       <div className="container">
         <div className="custom-container">
           <WorkorderFilters

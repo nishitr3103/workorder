@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  padding: 15px;
+  padding: 10px;
   background-color: #460475;
   border: 1px solid #fff;
   margin: 50px;
@@ -61,10 +61,18 @@ button:hover {
   background-color: #0b5ed7;
 }
 
+.custom-label {
+  font-family: Helvetica;
+  vertical-align: baseline;
+  padding: 5px 50px;
+  background-color: #460475;
+  color: white;
+  box-shadow: 0 0 400px rgb(16, 2, 69);
+}
   
 .custom-container {
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 400px rgb(16, 2, 69);
   border-radius: 8px;
   padding: 16px;
 }

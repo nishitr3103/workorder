@@ -8,7 +8,7 @@ export default function WorkorderTable({ results }) {
         <thead>
           <tr className="border-b">
             <th className="text-left p-2">Closure</th>
-            <th className="text-left p-2">SN</th>
+            <th className="text-left p-2">SNN</th>
             <th className="text-left p-2">Workorder</th>
             <th className="text-left p-2">Address</th>
             <th className="text-left p-2">Contract</th>
@@ -21,7 +21,7 @@ export default function WorkorderTable({ results }) {
           {results.map((r, i) => (
             <tr key={i} className="border-t">
               <td className="p-2">{r.closure}</td>
-              <td className="p-2">{r.sn}</td>
+              <td className="p-2">{r.snn}</td>
               <td className="p-2">{r.workorder}</td>
               <td className="p-2">{r.address}</td>
               <td className="p-2">{r.contract}</td>
