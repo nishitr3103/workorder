@@ -1,37 +1,106 @@
 import React from "react";
+import '../styles/workorderfilter.css';
 
 export default function WorkorderFilters({ filters, setFilters, onSearch }) {
   return (
-    <div className="grid gap-4 grid-cols-3">
+    <div className="workorder-filters">
       <div>
-        <label className="block text-sm font-medium">Workorder</label>
+        <label>Name</label>
         <input
-          className="border p-2 rounded w-full"
-          value={filters.workorder}
-          onChange={(e) => setFilters({ ...filters, workorder: e.target.value })}
-          placeholder="Enter workorder"
+          type="text"
+          value={filters.name || ""}
+          onChange={(e) => setFilters({ ...filters, name: e.target.value })}
+          placeholder="Enter Name"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Contractor</label>
-        <select className="border p-2 rounded w-full" defaultValue="">
+        <label>Workorder</label>
+        <input
+          type="text"
+          value={filters.workorder || ""}
+          onChange={(e) => setFilters({ ...filters, workorder: e.target.value })}
+          placeholder="Enter Workorder"
+        />
+      </div>
+
+      <div>
+        <label>Contractor</label>
+        <select defaultValue="">
           <option value="">-- Please select --</option>
           <option value="contractor1">Contractor 1</option>
         </select>
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Contract</label>
-        <select className="border p-2 rounded w-full" defaultValue="">
+        <label>Contract</label>
+        <select defaultValue="">
           <option value="">-- Please select --</option>
           <option value="contract1">Contract 1</option>
         </select>
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Situation</label>
-        <div className="flex items-center gap-4 mt-2">
+        <label>Area</label>
+        <select defaultValue="">
+          <option value="">-- Please select --</option>
+          <option value="Area1">Area 1</option>
+        </select>
+      </div>
+
+      <div>
+        <label>SNN</label>
+        <input
+          type="text"
+          value={filters.snn || ""}
+          onChange={(e) => setFilters({ ...filters, snn: e.target.value })}
+          placeholder="Enter SNN"
+        />
+      </div>
+
+      <div>
+        <label>City</label>
+        <input
+          type="text"
+          value={filters.city || ""}
+          onChange={(e) => setFilters({ ...filters, city: e.target.value })}
+          placeholder="Enter City"
+        />
+      </div>
+
+      <div>
+        <label>Cato Number</label>
+        <input
+          type="text"
+          value={filters.catoNum || ""}
+          onChange={(e) => setFilters({ ...filters, catoNum: e.target.value })}
+          placeholder="Cato Number"
+        />
+      </div>
+
+      <div>
+        <label>DAM</label>
+        <input
+          type="text"
+          value={filters.dam || ""}
+          onChange={(e) => setFilters({ ...filters, dam: e.target.value })}
+          placeholder="DAM"
+        />
+      </div>
+
+      <div>
+        <label>Job Code</label>
+        <input
+          type="text"
+          value={filters.jobCode || ""}
+          onChange={(e) => setFilters({ ...filters, jobCode: e.target.value })}
+          placeholder="DAM"
+        />
+      </div>
+
+      <div>
+        <label>Situation</label>
+        <div className="checkbox-group">
           <label><input type="checkbox" defaultChecked /> All</label>
           <label><input type="checkbox" /> Standard</label>
           <label><input type="checkbox" /> Divergent</label>
@@ -39,17 +108,17 @@ export default function WorkorderFilters({ filters, setFilters, onSearch }) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Contract Type</label>
-        <div className="flex items-center gap-4 mt-2">
+        <label>Contract Type</label>
+        <div className="checkbox-group">
           <label><input type="checkbox" defaultChecked /> All</label>
           <label><input type="checkbox" /> Cabling</label>
-          <label><input type="checkbox" /> Voice & Data</label>
+          <label><input type="checkbox" /> Voice&Data</label>
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Technology</label>
-        <div className="flex items-center gap-4 mt-2">
+        <label>Technology</label>
+        <div className="checkbox-group">
           <label><input type="checkbox" defaultChecked /> All</label>
           <label><input type="checkbox" /> Copper</label>
           <label><input type="checkbox" /> Fiber</label>
@@ -57,18 +126,16 @@ export default function WorkorderFilters({ filters, setFilters, onSearch }) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Process</label>
-        <div className="flex items-center gap-4 mt-2">
+        <label>Process</label>
+        <div className="checkbox-group">
           <label><input type="checkbox" defaultChecked /> All</label>
-          <label><input type="checkbox" defaultChecked /> Repair</label>
+          <label><input type="checkbox" /> Repair</label>
           <label><input type="checkbox" /> Provisioning</label>
         </div>
       </div>
 
       <div className="col-span-3">
-        <button className="bg-blue-600 text-white p-2 rounded mt-4" onClick={onSearch}>
-          Search
-        </button>
+        <button className="search-button" onClick={onSearch}>Search</button>
       </div>
     </div>
   );

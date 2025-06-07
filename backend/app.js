@@ -1,14 +1,27 @@
 const express = require("express")
 const app = express();
-const port = process.env.PORT || 3000;
+const cors = require("cors");
+const bodyparser = require('body-parser')
 const homeRouter = require('./src/router/home')
 const getWorkOrder = require('./src/router/getworkorder')
+const port = process.env.PORT || 3000;
 
-// configuring express to parse incoming json
-app.use(express.json()); 
-// home enpoint
+
+const corsOptions = {
+    origin: 'http://localhost:3001',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type']  
+};
+
+app.use(cors(corsOptions));
+
+// Body-parser middleware
+app.use(bodyparser.urlencoded({ extended: false }))
+app.use(bodyparser.json())
+
+// home endpoint
 app.get('/home',homeRouter);
-// getWorkorder enpoint
+// getWorkorder endpoint
 app.post('/getWorkorder',getWorkOrder)
 
 app.listen(port,()=>{

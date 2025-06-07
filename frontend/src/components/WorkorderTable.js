@@ -3,6 +3,7 @@ import React from "react";
 export default function WorkorderTable({ results }) {
   return (
     <div className="overflow-auto p-4">
+      <label>Results</label>
       <table className="w-full text-sm border-collapse">
         <thead>
           <tr className="border-b">
