@@ -30,7 +30,7 @@ router.post('/getworkorder', (req,res)=>{
         }
     }catch(error){
         console.error('Error fetching data:', error);
-        res.status(500).send('Internal Server Error')
+        return res.status(500).send('Internal Server Error')
     }
 })
 

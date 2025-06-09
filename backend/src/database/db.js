@@ -1,4 +1,36 @@
 
+// const oracledb = require("oracledb");
+
+// async function run() {
+//   let connection;
+
+//   try {
+//     connection = await oracledb.getConnection({
+//       user: "your_db_user",
+//       password: "your_password",
+//       connectString: "hostname:port/service_name", // or alias
+//     });
+
+//     const result = await connection.execute("SELECT * FROM your_table");
+//     console.log("Query Results:", result.rows);
+
+//   } catch (err) {
+//     console.error("Error:", err);
+//   } finally {
+//     if (connection) {
+//       try {
+//         await connection.close();
+//       } catch (err) {
+//         console.error("Close error:", err);
+//       }
+//     }
+//   }
+// }
+
+// run();
+
+
+
 const data = [
     {
       name:'Alex',
